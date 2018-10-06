@@ -1,0 +1,107 @@
+
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700&subset=latin-ext');
+
+html, body {
+    font-size: 14px;
+    font-family: 'Lato', sans-serif;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 80px;
+}
+
+#editor {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 600px;
+}
+
+.max-2-lines {
+    display: block;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    overflow: hidden;
+    height: 1.8em;
+    line-height: 0.9em;
+}
+
+.snippet-header {
+    background: #fafbfc;
+    border-bottom: 1px solid #e1e4e8;
+    font-size: 1.2rem;
+}
+
+.snippet-header .nav {
+    border: 0;
+}
+
+.snippet-header .breadcrumb {
+    background: none;
+}
+
+.snippet-header .breadcrumb .active {
+    color: #007bff;
+    font-weight: 700;
+}
+
+.profile-header .avatar {
+    display: block;
+    height: 100px;
+}
+
+.profile-snippets .card-title {
+    font-size: 1.2rem;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    background: #343A40;
+    color: #ffffff;
+}
+
+.snippet {
+    margin: 10px;
+    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+.snippet h5 {
+    color: inherit;
+}
+
+.error .error-image {
+    width: 600px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.error .error-text {
+    font-size: 1.8rem;
+    color: #666666;
+}
+
+.error .error-backlink {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #40BCA8;
+}
+
+.greeting-text {
+    font-size: 1.4rem;
+}
+
+.snippet-header-nav .breadcrumb .breadcrumb-item {
+    font-size: 1.4rem;
+}

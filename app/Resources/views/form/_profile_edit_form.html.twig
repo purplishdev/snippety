@@ -1,0 +1,29 @@
+
+{{ form_start(form) }}
+    {{ form_errors(form) }}
+
+<div class="form-row">
+    <div class="col-lg mb-3 form-group">
+        {{ form_label(form.description, 'Opis') }}
+        {{ form_widget(form.description) }}
+        {{ form_errors(form.description) }}
+    </div>
+</div>
+
+<div class="form-row">
+    <div class="col-lg mb-3 form-group">
+        {{ form_label(form.avatar, 'Avatar') }}
+        {{ form_widget(form.avatar) }}
+        {{ form_errors(form.avatar) }}
+    </div>
+</div>
+
+<div class="form-row">
+    <div class="col-lg mb-3 form-group">
+        {% block buttons %}
+            {{ form_widget(form.save, {'attr': {'class': 'btn btn-success pull-right'} }) }}
+        {% endblock %}
+    </div>
+</div>
+
+{{ form_end(form) }}

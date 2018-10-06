@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="row justify-content-md-center">
+        <div class="card col-lg-10 p-5">
+            <h1 class="mb-5">{{ 'Register new account' | trans }}</h1>
+            {% include 'form/_register_form.html.twig' %}
+        </div>
+    </div>
+
+{% endblock %}

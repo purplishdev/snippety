@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    {% set is_owner = app.user == user %}
+
+    {% if is_granted('ROLE_SUPER_ADMIN') %}
+        {% set is_owner = true %}
+    {% endif %}
+
+    <div class="container">
+        <div class="profile-header p-3">
+            <div class="row align-middle">
+                <div class="col-md-2">
+                    <img class="avatar" src="avatars/{{ user.avatar }}">
+                </div>
+                <div class="col-md-10">
+                    {% if is_owner %}
+                        <a href="{{ path('snippet_create') }}" class="btn btn-primary float-right">{{ 'Add new snippet' | trans }}</a>
+                        <a href="{{ path('user_profile_edit') }}" class="btn btn-success mr-3 float-right">{{ 'Edit profile' | trans }}</a>
+                    {% endif %}
+
+                    <h2>{{ user.username }}</h2>
+                    <span class="text-muted">{{ user.description }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="profile-snippets p-3">
+        <div class="container">
+            {% if snippets | length == 0 %}
+                <div class="alert alert-warning text-center">{{ 'No snippets to show' | trans }}</div>
+            {% endif %}
+            <div class="row">
+                {% for snippet in snippets %}
+                    {% if not snippet.private or snippet.private and is_owner %}
+                        <div class="col-sm-6 col-md-4 pb-4">
+                            {% include 'partial/snippet-card.html.twig' %}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

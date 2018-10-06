@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    {% if error %}
+        <div class="alert alert-danger">
+            {{ error.messageKey | trans(error.messageData, 'security') }}
+        </div>
+    {% endif %}
+
+    <div class="row justify-content-md-center">
+        <div class="card col-md-8 lg-6 p-5">
+            <h1 class="mb-5">{{ 'Login to your account' | trans }}</h1><br>
+            {% include 'form/_login_form.html.twig' %}
+        </div>
+    </div>
+
+{% endblock %}

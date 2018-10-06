@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% set is_owner = app.user == user %}
+
+{% if is_granted('ROLE_SUPER_ADMIN') %}
+    {% set is_owner = true %}
+{% endif %}
+
+{% set is_new_snippet = (snippet.id == 0) %}
+
+{% set user_path = path('user_profile', {'username': user.username} )  %}
+{% set snippet_path = '#' %}
+{% set snippet_edit_path = '#' %}
+
+{% if not is_new_snippet %}
+    {% set snippet_path = path('user_snippet', {'username': user.username, 'snippet': snippet.title} ) %}
+    {% set snippet_edit_path = path('user_snippet_edit', {'username': user.username, 'snippet': snippet.title}) %}
+{% endif %}
+
+{% set route = app.request.get('_route') %}
+
+{% block body %}
+<div class="snippet-header mb-4">
+    <div class="container">
+
+        <div class="snippet-header-nav p-4">
+            {% if is_new_snippet %}
+                <h4>Dodaj nowy snippet</h4>
+            {% else %}
+                <nav aria-label="breadcrumb" role="navigation">
+                    <ol class="breadcrumb p-0 m-0">
+                        <li class="breadcrumb-item"><a href="{{ user_path }}">{{ user.username }}</a></li>
+                        <li class="breadcrumb-item"><a href="{{ snippet_path }}">{{ snippet.title }}</a></li>
+                    </ol>
+                </nav>
+
+                <p class="text-muted">{{ snippet.description }}</p>
+            {% endif %}
+        </div>
+
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link {{ 'edit' not in route ? 'active' }}" href="{{ snippet_path }}">
+                    <i class="fa fa-code" aria-hidden="true">&nbsp;</i>
+                    <b>{{ 'Code' | trans }}</b>
+                </a>
+            </li>
+            <li class="nav-item">
+                {% if is_owner %}
+                    <a class="nav-link {{ 'edit' in route ? 'active' }}" href="{{ snippet_edit_path }}">
+                        <i class="fa fa-edit" aria-hidden="true">&nbsp;</i>
+                        <b>{{ 'Edit' | trans }}</b>
+                    </a>
+                {% endif %}
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="snippet-body">
+    <div class="container">
+        {% block snippet_body %} {% endblock %}
+    </div>
+</div>
+{% endblock %}

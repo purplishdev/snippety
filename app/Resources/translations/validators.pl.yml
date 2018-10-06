@@ -1,0 +1,20 @@
+
+# register form
+
+This username is already taken: Ta nazwa użytkownika jest już zajęta.
+Username should contain only alphanumeric characters and should be 3 to 16 characters long: Nazwa użytkownika musi mieć od 3 do 16 znaków i zawierać tylko znaki alfanumeryczne
+
+This email is already taken: Ten adres email jest już zajęty.
+Email must be at least {{ limit }} characters long: Email musi mieć długość co najmniej {{ limit }} znaków
+Email cannot be longer than {{ limit }} characters: Email nie może być dłuższy niż {{ limit }} znaków
+
+Password should contain at least 8 characters, one big letter and one number: Hasło powinno zawierać co najmniej 8 znaków, jedną wielką literę i jedną cyfrę.
+
+
+# snippet
+
+Title must contain only alphanumeric characters: Tytuł musi zawierać tylko znaki alfanumeryczne
+Title cannot be longer than {{ limit }} characters: Tytuł nie może być dłuższy niż {{ limit }} znaków
+Description cannot be longer than {{ limit }} characters: Opis nie może być dłuższy niż {{ limit }} znaków
+
+# ...

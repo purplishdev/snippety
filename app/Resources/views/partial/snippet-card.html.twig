@@ -1,0 +1,15 @@
+
+{% set snippet_path = path('user_snippet', {'username': user.username, 'snippet': snippet.title} ) %}
+
+<div class="card h-100">
+    <div class="card-body">
+        <h5 class="card-title">
+            {% block card_title %}
+                <a href="{{ snippet_path }}">{{ snippet.title }}</a>
+            {% endblock %}
+        </h5>
+        <p class="card-text text-muted max-2-lines">{{ snippet.description }}</p>
+        <span class="text-muted float-right">{{ snippet.createdate | date | ago }}</span>
+        <span class="badge badge-info float-left">{{ snippet.language | language | upper }}</span>
+    </div>
+</div>

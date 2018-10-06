@@ -1,0 +1,23 @@
+{% extends 'user/snippet-base.html.twig' %}
+
+{% block snippet_body %}
+    <div class="card">
+        <div class="border rounded" id="editor">{{ snippet.code }}</div>
+    </div>
+{% endblock %}
+
+{% block javascript %}
+    <script src="{{ asset('vendor/ace/src-min-noconflict/ace.js') }}"></script>
+    <script>
+        var editor = ace.edit("editor");
+        editor.renderer.$cursorLayer.element.style.display = "none";
+        editor.setOptions({
+            readOnly: true,
+            highlightActiveLine: false,
+            highlightGutterLine: false,
+            showPrintMargin: false
+        });
+        editor.setTheme("ace/theme/dreamweaver");
+        editor.getSession().setMode("ace/mode/{{ snippet.getLanguage() }}");
+    </script>
+{% endblock %}

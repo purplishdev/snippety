@@ -1,0 +1,35 @@
+
+{{ form_start(form) }}
+    {{ form_errors(form) }}
+
+<div class="form-row">
+    <div class="col-lg mb-3 form-group">
+        {{ form_label(form.username, 'Username') }}
+        {{ form_widget(form.username) }}
+        {{ form_errors(form.username) }}
+    </div>
+
+    <div class="col-lg mb-3 form-group">
+        {{ form_label(form.email, 'Email') }}
+        {{ form_widget(form.email) }}
+        {{ form_errors(form.email) }}
+    </div>
+</div>
+
+<div class="form-row">
+    <div class="col-lg mb-3 form-group">
+        {{ form_label(form.plainPassword.first, 'Password') }}
+        {{ form_widget(form.plainPassword.first, { 'invalid_message': 'Wpisane hasła muszą takie same.' } ) }}
+        {{ form_errors(form.plainPassword.first) }}
+    </div>
+
+    <div class="col-lg mb-3 form-group">
+        {{ form_label(form.plainPassword.second, 'Repeat password') }}
+        {{ form_widget(form.plainPassword.second) }}
+        {{ form_errors(form.plainPassword.second) }}
+    </div>
+</div>
+
+{{ form_widget(form.register, {'attr': {'class': 'pull-right btn-primary'} }) }}
+
+{{ form_end(form) }}

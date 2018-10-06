@@ -1,0 +1,49 @@
+
+{{ form_start(form) }}
+    {{ form_errors(form) }}
+
+<div class="form-row">
+    <div class="col-lg mb-3 form-group">
+        {{ form_label(form.title, 'Title') }}
+        {{ form_widget(form.title) }}
+        {{ form_errors(form.title) }}
+    </div>
+
+    <div class="col-lg mb-3 form-group">
+        {{ form_label(form.description, 'Description') }}
+        {{ form_widget(form.description) }}
+        {{ form_errors(form.description) }}
+    </div>
+</div>
+
+<div class="form-row">
+    <div class="col-lg mb-3 form-group">
+        {{ form_label(form.language, 'Language') }}
+        {{ form_widget(form.language) }}
+        {{ form_errors(form.language) }}
+    </div>
+</div>
+
+<div class="form-row">
+    <div class="col-lg mb-3 form-group">
+        {{ form_label(form.code, 'Code') }}
+        {{ form_widget(form.code, { 'mode': mode, 'wrapper_attr': {'class': 'border rounded'} }) }}
+        {{ form_errors(form.code) }}
+    </div>
+</div>
+
+<div class="form-row">
+    <div class="col-lg mb-3 form-group">
+        {{ form_label(form.private) }}
+        {{ form_widget(form.private, {'label': 'Set as private'} ) }}
+        {{ form_errors(form.private) }}
+    </div>
+
+    <div class="col-lg mb-3 form-group">
+        {% block buttons %}
+            {{ form_widget(form.save, {'attr': {'class': 'btn btn-success pull-right'} }) }}
+        {% endblock %}
+    </div>
+</div>
+
+{{ form_end(form) }}

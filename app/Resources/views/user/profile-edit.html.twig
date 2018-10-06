@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    {% set is_owner = app.user == user %}
+
+    {% if is_granted('ROLE_SUPER_ADMIN') %}
+        {% set is_owner = true %}
+    {% endif %}
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card p-3">
+                    <h1 class="mb-5">{{ 'Edit profile' | trans }}</h1>
+                    {% include 'form/_profile_edit_form.html.twig' %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

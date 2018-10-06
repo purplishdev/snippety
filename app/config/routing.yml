@@ -1,0 +1,33 @@
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
+
+snippet_create:
+    path: /new
+    defaults:
+        _controller: AppBundle:Snippet:snippetCreate
+
+user_profile_edit:
+    path: /edit
+    defaults:
+        _controller: AppBundle:User:profileEdit
+
+user_profile:
+    path: /{username}
+    defaults:
+        _controller: AppBundle:User:profileView
+
+user_snippet:
+    path: /{username}/{snippet}
+    defaults:
+        _controller: AppBundle:Snippet:snippetView
+
+user_snippet_edit:
+    path: /{username}/{snippet}/edit
+    defaults:
+        _controller: AppBundle:Snippet:snippetEdit
+
+user_snippet_delete:
+    path: /{username}/{snippet}/delete
+    defaults:
+        _controller: AppBundle:Snippet:snippetDelete

@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-12 greeting-text text-center text-muted">
+            {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                <span>Witaj {{ app.user.username }}! Czy chcesz coś <a href="{{ path('snippet_create') }}">dodać</a>?</span>
+            {% else %}
+            <div class="alert alert-secondary p-5">
+                <span class="d-block">Witaj nieznajomy, <a href="{{ path('login') }}">zaloguj się</a>.</span>
+                <span class="d-block">Jeśli jeszcze nie masz konta to zachęcamy do <a href="{{ path('register') }}">rejestracji</a>.</span>
+            </div>
+
+            {% endif %}
+        </div>
+    </div>
+
+    <h5 class="text-muted p-3 pt-0">Najnowsze snippety</h5>
+
+    <div class="row">
+    {% for snippet in snippets %}
+
+        {% set user = snippet.author %}
+        {% set user_path = path('user_profile', { 'username': user.username } ) %}
+
+        <div class="col-12 pb-4">
+            {% embed 'partial/snippet-card.html.twig' with { 'user': user, 'snippet': snippet } %}
+                {% block card_title %}
+                    <a href="{{ user_path }}">{{ user.username }}</a> / {{ parent() }}
+                {% endblock %}
+            {% endembed %}
+        </div>
+    {% endfor %}
+    </div>
+</div>
+{% endblock %}

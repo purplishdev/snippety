@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>{% block title %}Snippety{% endblock %}</title>
+
+        {% stylesheets
+        'css/bootstrap-reboot.min.css'
+        'css/bootstrap.min.css'
+        'css/font-awesome.min.css'
+        'css/devicon-colors.css'
+        'css/devicon.min.css'
+        'css/highlight-atom-one-light.css'
+        'css/main.css'
+        output='css/compiled/app.css'
+        filter='?uglifycss'
+        filter='cssrewrite'
+        %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+        {% endstylesheets %}
+
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+    {% block wrapper %}
+
+        {% block navigation %}
+            {% include 'partial/navigation.html.twig' %}
+        {% endblock %}
+
+        <main class="wrapper">
+            <div class="container">
+                {% for label, messages in app.flashes %}
+                    {% for message in messages %}
+                        <div class="alert alert-{{ label }} text-center">
+                            {{ message | trans }}
+                            <button type="button" class="close" aria-label="Close" data-dismiss="alert">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+            </div>
+
+            {% block body %}{% endblock %}
+        </main>
+
+        <footer class="footer">
+            {% block footer %}
+                <span>Created by Purplish 2017.</span>
+            {% endblock %}
+        </footer>
+    {% endblock %}
+
+        {% javascripts
+        'js/jquery.min.js'
+        'js/tether.min.js'
+        'js/masonry.min.js'
+        'js/highlight.min.js'
+        'js/bootpag.min.js'
+        'js/popper.min.js'
+        'js/bootstrap.min.js'
+        'js/alerts.js'
+        'js/main.js'
+        filter='?uglifyjs2'
+        output='js/compiled/app.js'
+        %}
+        <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+
+        {% block javascript %}{% endblock %}
+    </body>
+</html>

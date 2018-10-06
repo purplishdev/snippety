@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block wrapper %}
+
+    <div class="container error text-center p-5">
+        <div class="row">
+            <div class="col-12 my-auto">
+                <img class="error-image" src="{{ asset('img/' ~ status_code ~ '.png') }}" alt="Generic error image">
+                <p class="error-text">Wooops... coś poszło nie tak...</p>
+                <a class="error-backlink" href="{{ path('homepage') }}">Powrót do strony głównej</a>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,43 @@
+
+# common
+
+Username: Nazwa użytkownika
+Email: Email
+Password: Hasło
+Repeat password: Powtórz hasło
+Login: Zaloguj
+Register: Zarejestruj
+
+Profile: Profil
+Logout: Wyloguj
+
+Login to your account: Zaloguj się do swojego konta
+Register new account: Zarejestruj nowe konto
+You have been registered successfully. Now you can login.: Zostałeś pomyślnie zarejestrowany. Teraz możesz się zalogować.
+
+You do not have any Snippets: Nie masz żadnych snippetów
+Snippet has been saved.: Snippet został zapisany.
+Snippet has been created.: Snippet został utworzony
+
+# snippets
+
+Add new snippet: Dodaj nowy snippet
+Code: Kod
+Set as private: Oznacz jako prywatny
+Language: Język
+Tags: Tagi
+Title: Tytuł
+Description: Opis
+Author: Autor
+Created: Utworzony
+Actions: Akcje
+Show: Pokaż
+Edit: Edytuj
+Delete: Usuń
+Save: Zapisz
+
+Latest submitted snippets: Ostatnio dodane snippety
+No snippets to show: Brak snippetów do wyświetlenia
+
+Edit snippet: Edytuj snippet
+Edit profile: Edytuj profil

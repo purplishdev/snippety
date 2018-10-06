@@ -1,0 +1,19 @@
+{% extends 'user/snippet-base.html.twig' %}
+
+{% block snippet_body %}
+    <div class="card px-5 py-3">
+    {% embed 'form/_snippet_form.html.twig' with {'mode': 'ace/mode/' ~ snippet.getLanguage() } %}
+
+        {% block buttons %}
+            {% if is_owner and not is_new_snippet %}
+                <div class="float-right">
+                    <a href="{{ path('user_snippet_delete', { 'username': user.username,'snippet':snippet.title } ) }}" class="btn btn-danger ml-2">{{ 'Delete' | trans }}</a>
+                </div>
+            {% endif %}
+
+            {{ parent() }}
+        {% endblock %}
+
+    {% endembed %}
+    </div>
+{% endblock %}
