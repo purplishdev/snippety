@@ -1,4 +1,3 @@
-TAI
-===
+Snippety
 
-A Symfony project created on October 10, 2017, 6:55 pm.
+Website created in Symfony which allows users sharing their code snippets (similiar to Github)
